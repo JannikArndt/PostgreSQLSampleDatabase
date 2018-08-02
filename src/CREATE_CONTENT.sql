@@ -21,7 +21,7 @@ CREATE TEMP TABLE categories(
 INSERT INTO categories
     VALUES
       ('Apparel', 'T-Shirt'),
-      ('Apparel', 'Blazers & Sport Coats'),
+      ('Apparel', 'Blazer'),
       ('Apparel', 'Button-Down Shirt'),
       ('Apparel', 'Coat'),
       ('Apparel', 'Jacket'),
@@ -49,7 +49,7 @@ INSERT INTO categories
       ('Apparel', 'Shorts'),
       ('Apparel', 'Skirt'),
       ('Apparel', 'Suit'),
-      ('Apparel', 'Tops'),
+      ('Apparel', 'Top'),
       ('Footwear', 'Athletic Shoes'),
       ('Footwear', 'Boots'),
       ('Footwear', 'Casual Shoes'),

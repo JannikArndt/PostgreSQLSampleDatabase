@@ -139,6 +139,7 @@ CREATE TABLE webshop.stock (
   updated   TIMESTAMP WITH TIME ZONE
 );
 
+DROP TABLE webshop.customer CASCADE ;
 CREATE TABLE webshop.customer (
   id               SERIAL PRIMARY KEY,
   firstName        TEXT,
