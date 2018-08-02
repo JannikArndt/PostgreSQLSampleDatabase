@@ -1,0 +1,16 @@
+INSERT INTO webshop.sizes (gender, category, size, size_us, size_uk, size_eu) VALUES
+  ('female', 'Apparel', 'XS', '[2,4)', '[4,6)', '[32,36)'),
+  ('female', 'Apparel', 'S', '[4,6)', '[6,10)', '[36,40)'),
+  ('female', 'Apparel', 'M', '[6,8)', '[10,14)', '[40,44)'),
+  ('female', 'Apparel', 'L', '[8,10)', '[14,18)', '[44,46)'),
+  ('female', 'Apparel', 'XL', '[10,12)', '[18,22)', '[46,50)'),
+  ('male', 'Apparel', 'XS', '[30,32)', '[30,32)', '[40,42)'),
+  ('male', 'Apparel', 'S', '[32,36)', '[32,36)', '[42,48)'),
+  ('male', 'Apparel', 'M', '[36,40)', '[36,40)', '[48,50)'),
+  ('male', 'Apparel', 'L', '[40,44)', '[40,44)', '[50,54)'),
+  ('male', 'Apparel', 'XL', '[44,50)', '[44,50)', '[54,58)'),
+  ('unisex', 'Footwear', 'XS', '[6,7)', '[5,6)', '[38,40)'),
+  ('unisex', 'Footwear', 'S', '[7,8)', '[6,7)', '[40,42)'),
+  ('unisex', 'Footwear', 'M', '[7,9)', '[7,8)', '[42,43)'),
+  ('unisex', 'Footwear', 'L', '[9,10)', '[8,9)', '[43,44)'),
+  ('unisex', 'Footwear', 'XL', '[10,11)', '[9,10)', '[44,45)');
