@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 pg_dump example --schema=webshop --schema=public \
     --exclude-table=webshop.products \
