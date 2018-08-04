@@ -367,8 +367,8 @@
 				<tr>
 				 <td>sizes</td>
 				 <td>Table</td>
-				 <td>size</td>
-				 <td>text</td>
+				 <td>size_eu</td>
+				 <td>int4range</td>
 				 <td>2147483647</td>
 				 <td title='nullable'>√</td>
 				 <td title=''></td>
@@ -387,11 +387,11 @@
 				 <td></td>
 				</tr>
 				<tr>
-				 <td>articles</td>
+				 <td>sizes</td>
 				 <td>Table</td>
 				 <td>size</td>
-				 <td>int4</td>
-				 <td>10</td>
+				 <td>text</td>
+				 <td>2147483647</td>
 				 <td title='nullable'>√</td>
 				 <td title=''></td>
 				 <td>null</td>
@@ -422,7 +422,7 @@
 				<tr>
 				 <td>sizes</td>
 				 <td>Table</td>
-				 <td>size_uk</td>
+				 <td>size_us</td>
 				 <td>int4range</td>
 				 <td>2147483647</td>
 				 <td title='nullable'>√</td>
@@ -464,9 +464,9 @@
 				 <td></td>
 				</tr>
 				<tr>
-				 <td>order</td>
+				 <td>address</td>
 				 <td>Table</td>
-				 <td>customer</td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>customerid</td>
 				 <td>int4</td>
 				 <td>10</td>
 				 <td title='nullable'>√</td>
@@ -475,7 +475,7 @@
 				 <td></td>
 				</tr>
 				<tr>
-				 <td>address</td>
+				 <td>order</td>
 				 <td>Table</td>
 				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>customerid</td>
 				 <td>int4</td>
@@ -499,7 +499,7 @@
 				<tr>
 				 <td>sizes</td>
 				 <td>Table</td>
-				 <td>size_eu</td>
+				 <td>size_uk</td>
 				 <td>int4range</td>
 				 <td>2147483647</td>
 				 <td title='nullable'>√</td>
@@ -541,11 +541,11 @@
 				 <td></td>
 				</tr>
 				<tr>
-				 <td>sizes</td>
+				 <td>articles</td>
 				 <td>Table</td>
-				 <td>size_us</td>
-				 <td>int4range</td>
-				 <td>2147483647</td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>sizeid</td>
+				 <td>int4</td>
+				 <td>10</td>
 				 <td title='nullable'>√</td>
 				 <td title=''></td>
 				 <td>null</td>

@@ -6,7 +6,7 @@
             <child column="shippingaddressid" foreignKey="order_shippingaddressid_fkey" implied="false" onDeleteCascade="false" schema="webshop" table="order"/>
          </column>
          <column autoUpdated="false" digits="0" id="1" name="customerid" nullable="true" remarks="" size="10" type="int4">
-            <parent column="id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="webshop" table="customer"/>
+            <parent column="id" foreignKey="fk_address_to_customer" implied="false" onDeleteCascade="false" schema="webshop" table="customer"/>
          </column>
          <column autoUpdated="false" digits="0" id="2" name="firstname" nullable="true" remarks="" size="2147483647" type="text"/>
          <column autoUpdated="false" digits="0" id="3" name="lastname" nullable="true" remarks="" size="2147483647" type="text"/>
@@ -31,7 +31,9 @@
          <column autoUpdated="false" digits="0" id="3" name="colorid" nullable="true" remarks="" size="10" type="int4">
             <parent column="id" foreignKey="articles_colorid_fkey" implied="false" onDeleteCascade="false" schema="webshop" table="colors"/>
          </column>
-         <column autoUpdated="false" digits="0" id="4" name="size" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="4" name="sizeid" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="fk_articles_to_size" implied="false" onDeleteCascade="false" schema="webshop" table="sizes"/>
+         </column>
          <column autoUpdated="false" digits="0" id="5" name="description" nullable="true" remarks="" size="2147483647" type="text"/>
          <column autoUpdated="false" digits="0" id="6" name="originalprice" nullable="true" remarks="" size="2147483647" type="money"/>
          <column autoUpdated="false" digits="0" id="7" name="reducedprice" nullable="true" remarks="" size="2147483647" type="money"/>
@@ -58,7 +60,8 @@
       </table>
       <table name="customer" numRows="1000" remarks="" schema="webshop" type="TABLE">
          <column autoUpdated="true" defaultValue="nextval('webshop.customer_id_seq1'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
-            <child column="customerid" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="webshop" table="address"/>
+            <child column="customerid" foreignKey="fk_address_to_customer" implied="false" onDeleteCascade="false" schema="webshop" table="address"/>
+            <child column="customerid" foreignKey="fk_order_to_customer" implied="false" onDeleteCascade="false" schema="webshop" table="order"/>
          </column>
          <column autoUpdated="false" digits="0" id="1" name="firstname" nullable="true" remarks="" size="2147483647" type="text"/>
          <column autoUpdated="false" digits="0" id="2" name="lastname" nullable="true" remarks="" size="2147483647" type="text"/>
@@ -89,7 +92,9 @@
          <column autoUpdated="true" defaultValue="nextval('webshop.order_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
             <child column="orderid" foreignKey="order_positions_orderid_fkey" implied="false" onDeleteCascade="false" schema="webshop" table="order_positions"/>
          </column>
-         <column autoUpdated="false" digits="0" id="1" name="customer" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="1" name="customerid" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="fk_order_to_customer" implied="false" onDeleteCascade="false" schema="webshop" table="customer"/>
+         </column>
          <column autoUpdated="false" defaultValue="now()" digits="6" id="2" name="ordertimestamp" nullable="true" remarks="" size="35" type="timestamptz"/>
          <column autoUpdated="false" digits="0" id="3" name="shippingaddressid" nullable="true" remarks="" size="10" type="int4">
             <parent column="id" foreignKey="order_shippingaddressid_fkey" implied="false" onDeleteCascade="false" schema="webshop" table="address"/>
@@ -137,7 +142,9 @@
          </index>
       </table>
       <table name="sizes" numRows="15" remarks="" schema="webshop" type="TABLE">
-         <column autoUpdated="true" defaultValue="nextval('webshop.sizes_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="true" defaultValue="nextval('webshop.sizes_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="sizeid" foreignKey="fk_articles_to_size" implied="false" onDeleteCascade="false" schema="webshop" table="articles"/>
+         </column>
          <column autoUpdated="false" digits="0" id="1" name="gender" nullable="true" remarks="" size="2147483647" type="gender"/>
          <column autoUpdated="false" digits="0" id="2" name="category" nullable="true" remarks="" size="2147483647" type="category"/>
          <column autoUpdated="false" digits="0" id="3" name="size" nullable="true" remarks="" size="2147483647" type="text"/>

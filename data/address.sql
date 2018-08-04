@@ -1092,6 +1092,14 @@ ALTER TABLE ONLY webshop.address
 
 
 --
+-- Name: address fk_address_to_customer; Type: FK CONSTRAINT; Schema: webshop; Owner: postgres
+--
+
+ALTER TABLE ONLY webshop.address
+    ADD CONSTRAINT fk_address_to_customer FOREIGN KEY (customerid) REFERENCES webshop.customer(id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 

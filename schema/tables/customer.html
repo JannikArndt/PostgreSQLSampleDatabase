@@ -115,11 +115,19 @@
 				 <td>
 				  <table border='0' cellspacing='0' cellpadding='0'>
 				   <tr>
-					<td title="address.customerid&#39;s name implies that it&#39;s a child of customer.id, but it doesn&#39;t reference that column.">
+					<td title="address.customerid references customer.id via fk_address_to_customer">
 						<a href='address.html'>address</a><span class='relatedKey'>.customerid</span>
 					</td>
 					<td class="constraint detail">
-						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+						fk_address_to_customer <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				   <tr>
+					<td title="order.customerid references customer.id via fk_order_to_customer">
+						<a href='order.html'>order</a><span class='relatedKey'>.customerid</span>
+					</td>
+					<td class="constraint detail">
+						fk_order_to_customer <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
 					</td>
 				   </tr>
 				  </table>				 
@@ -322,33 +330,27 @@
 			<h5>Close relationships within degrees of separation</h5>
             <ul class="nav nav-tabs pull-left ui-sortable-handle">
 			  			              <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>			  			 
-			  			              <li class=""><a href="#oneimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">One implied</a></li>			  			 
-			  			              <li class=""><a href="#twoimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two implied</a></li>			  			 
+			  			              <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>			  			 
             </ul>
             <div class="tab-content no-padding">            
 				<div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">					
 					<map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="customer.html" title="customer" alt="" coords="5,5,301,339">
+<area shape="rect" id="node1" href="address.html" title="address" alt="" coords="345,87,480,233">
+<area shape="rect" id="node2" href="customer.html" title="customer" alt="" coords="5,60,301,393">
+<area shape="rect" id="node3" href="order.html" title="order" alt="" coords="524,5,715,181">
 </map>
 
 					<a name='diagram'><img id='oneDegreeImg' src='../diagrams/customer.1degree.png' usemap='#oneDegreeRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
 				</div>
-				<div class="chart tab-pane " id="oneimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">					
-					<map id="oneDegreeRelationshipsDiagramImplied" name="oneDegreeRelationshipsDiagramImplied">
-<area shape="rect" id="node1" href="address.html" title="address" alt="" coords="345,5,480,152">
-<area shape="rect" id="node2" href="customer.html" title="customer" alt="" coords="5,32,301,365">
+				<div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
+<area shape="rect" id="node1" href="address.html" title="address" alt="" coords="345,87,480,233">
+<area shape="rect" id="node2" href="customer.html" title="customer" alt="" coords="5,60,301,393">
+<area shape="rect" id="node3" href="order.html" title="order" alt="" coords="524,5,715,181">
+<area shape="rect" id="node4" href="order_positions.html" title="order_positions" alt="" coords="759,8,913,96">
 </map>
 
-					<a name='diagram'><img id='oneimpliedDegreeImg' src='../diagrams/customer.implied1degrees.png' usemap='#oneDegreeRelationshipsDiagramImplied' class='diagram' border='0' alt='' align='left'></a>							
-				</div>
-				<div class="chart tab-pane " id="twoimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">					
-					<map id="twoDegreesRelationshipsDiagramImplied" name="twoDegreesRelationshipsDiagramImplied">
-<area shape="rect" id="node1" href="address.html" title="address" alt="" coords="345,5,480,152">
-<area shape="rect" id="node2" href="customer.html" title="customer" alt="" coords="5,32,301,365">
-<area shape="rect" id="node3" href="order.html" title="order" alt="" coords="524,8,656,96">
-</map>
-
-					<a name='diagram'><img id='twoimpliedDegreeImg' src='../diagrams/customer.implied2degrees.png' usemap='#twoDegreesRelationshipsDiagramImplied' class='diagram' border='0' alt='' align='left'></a>							
+					<a name='diagram'><img id='twodegreesDegreeImg' src='../diagrams/customer.2degrees.png' usemap='#twoDegreesRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
 				</div>
 			  			</div>
 			</div>

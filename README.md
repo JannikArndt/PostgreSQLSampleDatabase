@@ -18,4 +18,4 @@ $ ./restore.sh myDatabaseName
 
 Created with schemaspy:
 
-![](schema/diagrams/summary/relationships.implied.large.png)
+![](schema/diagrams/summary/relationships.real.large.png)

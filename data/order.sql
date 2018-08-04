@@ -25,7 +25,7 @@ SET default_with_oids = false;
 
 CREATE TABLE webshop."order" (
     id integer NOT NULL,
-    customer integer,
+    customerid integer,
     ordertimestamp timestamp with time zone DEFAULT now(),
     shippingaddressid integer,
     total money,
@@ -70,7 +70,7 @@ ALTER TABLE ONLY webshop."order" ALTER COLUMN id SET DEFAULT nextval('webshop.or
 -- Data for Name: order; Type: TABLE DATA; Schema: webshop; Owner: postgres
 --
 
-COPY webshop."order" (id, customer, ordertimestamp, shippingaddressid, total, shippingcost, created, updated) FROM stdin;
+COPY webshop."order" (id, customerid, ordertimestamp, shippingaddressid, total, shippingcost, created, updated) FROM stdin;
 11	229	2018-03-14 06:52:31.662986+01	229	$361.81	$3.90	2018-08-02 15:30:40.686986+02	\N
 12	1077	2018-01-06 06:50:20.248586+01	1077	$341.57	$3.90	2018-08-02 15:30:40.686986+02	\N
 13	865	2017-07-25 13:08:29.118986+02	865	$414.63	$3.90	2018-08-02 15:30:40.686986+02	\N
@@ -2087,6 +2087,14 @@ SELECT pg_catalog.setval('webshop.order_id_seq', 2010, true);
 
 ALTER TABLE ONLY webshop."order"
     ADD CONSTRAINT order_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: order fk_order_to_customer; Type: FK CONSTRAINT; Schema: webshop; Owner: postgres
+--
+
+ALTER TABLE ONLY webshop."order"
+    ADD CONSTRAINT fk_order_to_customer FOREIGN KEY (customerid) REFERENCES webshop.customer(id);
 
 
 --
