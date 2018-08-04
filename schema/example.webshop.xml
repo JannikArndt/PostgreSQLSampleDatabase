@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="example" schema="webshop" type="PostgreSQL - 10.4">
+   <tables>
+      <table name="address" numRows="1000" remarks="" schema="webshop" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('webshop.address_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="shippingaddressid" foreignKey="order_shippingaddressid_fkey" implied="false" onDeleteCascade="false" schema="webshop" table="order"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="customerid" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="webshop" table="customer"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="firstname" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="3" name="lastname" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="4" name="address1" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="5" name="address2" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="6" name="city" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="7" name="zip" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="8" name="created" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="6" id="9" name="updated" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="address_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="articles" numRows="17730" remarks="" schema="webshop" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('webshop.articles_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="articleid" foreignKey="order_positions_articleid_fkey" implied="false" onDeleteCascade="false" schema="webshop" table="order_positions"/>
+            <child column="articleid" foreignKey="stock_articleid_fkey" implied="false" onDeleteCascade="false" schema="webshop" table="stock"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="productid" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="2" name="ean" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="3" name="colorid" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="articles_colorid_fkey" implied="false" onDeleteCascade="false" schema="webshop" table="colors"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="4" name="size" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="5" name="description" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="6" name="originalprice" nullable="true" remarks="" size="2147483647" type="money"/>
+         <column autoUpdated="false" digits="0" id="7" name="reducedprice" nullable="true" remarks="" size="2147483647" type="money"/>
+         <column autoUpdated="false" digits="0" id="8" name="taxrate" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="9" name="discountinpercent" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="10" name="currentlyactive" nullable="true" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="11" name="created" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="6" id="12" name="updated" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="articles_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="colors" numRows="143" remarks="" schema="webshop" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('webshop.colors_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="colorid" foreignKey="articles_colorid_fkey" implied="false" onDeleteCascade="false" schema="webshop" table="articles"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="2" name="rgb" nullable="true" remarks="" size="2147483647" type="text"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="colors_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="customer" numRows="1000" remarks="" schema="webshop" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('webshop.customer_id_seq1'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="customerid" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="webshop" table="address"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="firstname" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="2" name="lastname" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="3" name="gender" nullable="true" remarks="" size="2147483647" type="gender"/>
+         <column autoUpdated="false" digits="0" id="4" name="email" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="5" name="dateofbirth" nullable="true" remarks="" size="13" type="date"/>
+         <column autoUpdated="false" digits="0" id="6" name="currentaddressid" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="7" name="created" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="6" id="8" name="updated" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="customer_pkey1" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="labels" numRows="1170" remarks="" schema="webshop" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('webshop.labels_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="labelid" foreignKey="products_labelid_fkey" implied="false" onDeleteCascade="false" schema="webshop" table="products"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="2" name="slugname" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="3" name="icon" nullable="true" remarks="" size="2147483647" type="bytea"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="labels_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="order" numRows="2000" remarks="" schema="webshop" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('webshop.order_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial">
+            <child column="orderid" foreignKey="order_positions_orderid_fkey" implied="false" onDeleteCascade="false" schema="webshop" table="order_positions"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="customer" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="2" name="ordertimestamp" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="3" name="shippingaddressid" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="order_shippingaddressid_fkey" implied="false" onDeleteCascade="false" schema="webshop" table="address"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="4" name="total" nullable="true" remarks="" size="2147483647" type="money"/>
+         <column autoUpdated="false" digits="0" id="5" name="shippingcost" nullable="true" remarks="" size="2147483647" type="money"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="6" name="created" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="6" id="7" name="updated" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="order_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="order_positions" numRows="5985" remarks="" schema="webshop" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('webshop.order_positions_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="orderid" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="order_positions_orderid_fkey" implied="false" onDeleteCascade="false" schema="webshop" table="order"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="articleid" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="order_positions_articleid_fkey" implied="false" onDeleteCascade="false" schema="webshop" table="articles"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="amount" nullable="true" remarks="" size="5" type="int2"/>
+         <column autoUpdated="false" digits="0" id="4" name="price" nullable="true" remarks="" size="2147483647" type="money"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="5" name="created" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="6" id="6" name="updated" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="order_positions_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="products" numRows="1000" remarks="" schema="webshop" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('webshop.products_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="2" name="labelid" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="products_labelid_fkey" implied="false" onDeleteCascade="false" schema="webshop" table="labels"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="category" nullable="true" remarks="" size="2147483647" type="category"/>
+         <column autoUpdated="false" digits="0" id="4" name="gender" nullable="true" remarks="" size="2147483647" type="gender"/>
+         <column autoUpdated="false" digits="0" id="5" name="currentlyactive" nullable="true" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="6" name="created" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="6" id="7" name="updated" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="products_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="sizes" numRows="15" remarks="" schema="webshop" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('webshop.sizes_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="gender" nullable="true" remarks="" size="2147483647" type="gender"/>
+         <column autoUpdated="false" digits="0" id="2" name="category" nullable="true" remarks="" size="2147483647" type="category"/>
+         <column autoUpdated="false" digits="0" id="3" name="size" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="4" name="size_us" nullable="true" remarks="" size="2147483647" type="int4range"/>
+         <column autoUpdated="false" digits="0" id="5" name="size_uk" nullable="true" remarks="" size="2147483647" type="int4range"/>
+         <column autoUpdated="false" digits="0" id="6" name="size_eu" nullable="true" remarks="" size="2147483647" type="int4range"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="sizes_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="stock" numRows="17730" remarks="" schema="webshop" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('webshop.stock_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="articleid" nullable="true" remarks="" size="10" type="int4">
+            <parent column="id" foreignKey="stock_articleid_fkey" implied="false" onDeleteCascade="false" schema="webshop" table="articles"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="count" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="3" name="created" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="6" id="4" name="updated" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="stock_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+   </tables>
+</database>

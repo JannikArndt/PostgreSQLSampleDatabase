@@ -13,3 +13,9 @@ $ ./restore.sh myDatabaseName
 ```
 
 (using the defaults `localhost:5432` and user `postgres`)
+
+## Schema
+
+Created with schemaspy:
+
+![](schema/diagrams/summary/relationships.implied.large.png)
