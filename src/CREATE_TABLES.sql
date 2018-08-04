@@ -49,7 +49,7 @@ CREATE TABLE webshop.products
 (
   id              SERIAL PRIMARY KEY,
   name            TEXT,
-  labelId         INTEGER REFERENCES webshop.labels,
+  labelId         INTEGER REFERENCES webshop.labels (id),
   category        category,
   gender          gender,
   currentlyActive BOOLEAN,
@@ -60,10 +60,10 @@ CREATE TABLE webshop.products
 CREATE TABLE webshop.articles
 (
   id                SERIAL PRIMARY KEY,
-  productId         INTEGER REFERENCES webshop.products,
+  productId         INTEGER REFERENCES webshop.products (id),
   ean               TEXT,
-  colorId           INTEGER REFERENCES webshop.colors,
-  size              INTEGER REFERENCES webshop.sizes,
+  colorId           INTEGER REFERENCES webshop.colors (id),
+  sizeId            INTEGER REFERENCES webshop.sizes (id),
   description       TEXT,
   originalPrice     money,
   reducedPrice      money,
@@ -76,7 +76,7 @@ CREATE TABLE webshop.articles
 
 CREATE TABLE webshop.stock (
   id        SERIAL PRIMARY KEY,
-  articleId INTEGER REFERENCES webshop.articles,
+  articleId INTEGER REFERENCES webshop.articles (id),
   count     INTEGER,
   created   TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated   TIMESTAMP WITH TIME ZONE
@@ -96,7 +96,7 @@ CREATE TABLE webshop.customer (
 
 CREATE TABLE webshop.address (
   id         SERIAL PRIMARY KEY,
-  customerId INTEGER REFERENCES webshop.customer,
+  customerId INTEGER REFERENCES webshop.customer (id),
   firstName  TEXT,
   lastName   TEXT,
   address1   TEXT,
@@ -109,13 +109,13 @@ CREATE TABLE webshop.address (
 
 ALTER TABLE webshop.customer
   ADD CONSTRAINT fk_customer_to_current_address FOREIGN KEY
-  (currentAddressId) REFERENCES webshop.address;
+  (currentAddressId) REFERENCES webshop.address (id);
 
 CREATE TABLE webshop.order (
   id                SERIAL PRIMARY KEY,
-  customer          INTEGER REFERENCES webshop.customer,
+  customerId        INTEGER REFERENCES webshop.customer (id),
   orderTimestamp    TIMESTAMP WITH TIME ZONE DEFAULT now(),
-  shippingAddressId INTEGER REFERENCES webshop.address,
+  shippingAddressId INTEGER REFERENCES webshop.address (id),
   total             money,
   shippingCost      money,
   created           TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
@@ -124,8 +124,8 @@ CREATE TABLE webshop.order (
 
 CREATE TABLE webshop.order_positions (
   id        SERIAL PRIMARY KEY,
-  orderId   INTEGER REFERENCES webshop.order,
-  articleId INTEGER REFERENCES webshop.articles,
+  orderId   INTEGER REFERENCES webshop.order (id),
+  articleId INTEGER REFERENCES webshop.articles (id),
   amount    SMALLINT,
   price     money,
   created   TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
