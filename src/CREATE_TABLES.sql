@@ -14,17 +14,23 @@ CREATE TYPE category AS ENUM (
   'Cosmetics'
 );
 
+COMMENT ON TYPE category IS 'Category of clothing';
+
 CREATE TYPE gender AS ENUM (
   'male',
   'female',
   'unisex'
 );
 
+COMMENT ON TYPE gender IS 'Gender of customer or clothes';
+
 CREATE TABLE webshop.colors (
   id   SERIAL PRIMARY KEY,
   name TEXT,
   rgb  TEXT
 );
+
+COMMENT ON TABLE webshop.colors IS 'Colors with name and rgb value';
 
 CREATE TABLE webshop.sizes (
   id       SERIAL PRIMARY KEY,
@@ -36,7 +42,7 @@ CREATE TABLE webshop.sizes (
   size_EU  int4range
 );
 
-
+COMMENT ON TABLE webshop.sizes IS 'Sizes for US, UK and EU';
 
 CREATE TABLE webshop.labels (
   id       SERIAL PRIMARY KEY,
@@ -44,6 +50,8 @@ CREATE TABLE webshop.labels (
   slugName TEXT,
   icon     bytea
 );
+
+COMMENT ON TABLE webshop.labels IS 'Brands / labels';
 
 CREATE TABLE webshop.products
 (
@@ -56,6 +64,8 @@ CREATE TABLE webshop.products
   created         TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated         TIMESTAMP WITH TIME ZONE
 );
+
+COMMENT ON TABLE webshop.products IS 'Groups articles (differing in sizes/color)';
 
 CREATE TABLE webshop.articles
 (
@@ -74,6 +84,8 @@ CREATE TABLE webshop.articles
   updated           TIMESTAMP WITH TIME ZONE
 );
 
+COMMENT ON TABLE webshop.articles IS 'Instance of a product with a size, color and price';
+
 CREATE TABLE webshop.stock (
   id        SERIAL PRIMARY KEY,
   articleId INTEGER REFERENCES webshop.articles (id),
@@ -81,6 +93,8 @@ CREATE TABLE webshop.stock (
   created   TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated   TIMESTAMP WITH TIME ZONE
 );
+
+COMMENT ON TABLE webshop.stock IS 'Amount of articles on stock';
 
 CREATE TABLE webshop.customer (
   id               SERIAL PRIMARY KEY,
@@ -94,6 +108,8 @@ CREATE TABLE webshop.customer (
   updated          TIMESTAMP WITH TIME ZONE
 );
 
+COMMENT ON TABLE webshop.customer IS 'Basic customer data';
+
 CREATE TABLE webshop.address (
   id         SERIAL PRIMARY KEY,
   customerId INTEGER REFERENCES webshop.customer (id),
@@ -106,6 +122,8 @@ CREATE TABLE webshop.address (
   created    TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated    TIMESTAMP WITH TIME ZONE
 );
+
+COMMENT ON TABLE webshop.address IS 'Addresses for receipts and shipping';
 
 ALTER TABLE webshop.customer
   ADD CONSTRAINT fk_customer_to_current_address FOREIGN KEY
@@ -122,6 +140,8 @@ CREATE TABLE webshop.order (
   updated           TIMESTAMP WITH TIME ZONE
 );
 
+COMMENT ON TABLE webshop.order IS 'Metadata for an order, see order_positions as well';
+
 CREATE TABLE webshop.order_positions (
   id        SERIAL PRIMARY KEY,
   orderId   INTEGER REFERENCES webshop.order (id),
@@ -130,4 +150,6 @@ CREATE TABLE webshop.order_positions (
   price     money,
   created   TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated   TIMESTAMP WITH TIME ZONE
-)
+);
+
+COMMENT ON TABLE webshop.order_positions IS 'Articles that are contained in an order';

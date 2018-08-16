@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 10.4
--- Dumped by pg_dump version 10.4
+-- Dumped from database version 10.5
+-- Dumped by pg_dump version 10.5
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -33,6 +33,13 @@ CREATE TABLE webshop.stock (
 
 
 ALTER TABLE webshop.stock OWNER TO postgres;
+
+--
+-- Name: TABLE stock; Type: COMMENT; Schema: webshop; Owner: postgres
+--
+
+COMMENT ON TABLE webshop.stock IS 'Amount of articles on stock';
+
 
 --
 -- Name: stock_id_seq; Type: SEQUENCE; Schema: webshop; Owner: postgres

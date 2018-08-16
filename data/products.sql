@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 10.4
--- Dumped by pg_dump version 10.4
+-- Dumped from database version 10.5
+-- Dumped by pg_dump version 10.5
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -36,6 +36,13 @@ CREATE TABLE webshop.products (
 
 
 ALTER TABLE webshop.products OWNER TO postgres;
+
+--
+-- Name: TABLE products; Type: COMMENT; Schema: webshop; Owner: postgres
+--
+
+COMMENT ON TABLE webshop.products IS 'Groups articles (differing in sizes/color)';
+
 
 --
 -- Name: products_id_seq; Type: SEQUENCE; Schema: webshop; Owner: postgres
@@ -180,6 +187,7 @@ COPY webshop.products (id, name, labelid, category, gender, currentlyactive, cre
 156	Lipbalm Herry	90	Cosmetics	female	t	2018-08-02 12:48:58.471454+02	\N
 157	Tracksuit Jeana	112	Sportswear	male	t	2018-08-02 12:48:58.471454+02	\N
 158	Lingerie Obin	1165	Apparel	female	t	2018-08-02 12:48:58.471454+02	\N
+600	Belt Marisa	118	Accessories	unisex	t	2018-08-02 12:49:10.991437+02	\N
 159	Gym Bag Anita	460	Luggage	female	t	2018-08-02 12:48:58.471454+02	\N
 160	Nailpolish Ayleen	1093	Cosmetics	unisex	t	2018-08-02 12:48:58.471454+02	\N
 161	Bra Astrix	450	Apparel	female	t	2018-08-02 12:48:58.471454+02	\N
@@ -622,7 +630,6 @@ COPY webshop.products (id, name, labelid, category, gender, currentlyactive, cre
 597	Jacket Eiko	615	Sportswear	unisex	t	2018-08-02 12:49:10.991437+02	\N
 598	Shorts Eljin	753	Apparel	female	t	2018-08-02 12:49:10.991437+02	\N
 599	Flats Cylias	3	Footwear	female	t	2018-08-02 12:49:10.991437+02	\N
-600	Belt Marisa	118	Accessories	unisex	t	2018-08-02 12:49:10.991437+02	\N
 601	Undershirt Betzy	982	Apparel	female	t	2018-08-02 12:49:10.991437+02	\N
 602	Undershirt Lumo	397	Apparel	male	t	2018-08-02 12:49:10.991437+02	\N
 603	Laptop Bag Iola	286	Luggage	unisex	t	2018-08-02 12:49:10.991437+02	\N

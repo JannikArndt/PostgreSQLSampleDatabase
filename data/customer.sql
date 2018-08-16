@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 10.4
--- Dumped by pg_dump version 10.4
+-- Dumped from database version 10.5
+-- Dumped by pg_dump version 10.5
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -37,6 +37,13 @@ CREATE TABLE webshop.customer (
 
 
 ALTER TABLE webshop.customer OWNER TO postgres;
+
+--
+-- Name: TABLE customer; Type: COMMENT; Schema: webshop; Owner: postgres
+--
+
+COMMENT ON TABLE webshop.customer IS 'Basic customer data';
+
 
 --
 -- Name: customer_id_seq1; Type: SEQUENCE; Schema: webshop; Owner: postgres

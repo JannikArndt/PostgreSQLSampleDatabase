@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 10.4
--- Dumped by pg_dump version 10.4
+-- Dumped from database version 10.5
+-- Dumped by pg_dump version 10.5
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -44,6 +44,13 @@ CREATE TYPE public.category AS ENUM (
 ALTER TYPE public.category OWNER TO postgres;
 
 --
+-- Name: TYPE category; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TYPE public.category IS 'Sizes for US, UK and EU';
+
+
+--
 -- Name: gender; Type: TYPE; Schema: public; Owner: postgres
 --
 
@@ -55,6 +62,27 @@ CREATE TYPE public.gender AS ENUM (
 
 
 ALTER TYPE public.gender OWNER TO postgres;
+
+--
+-- Name: TYPE gender; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TYPE public.gender IS 'Gender of customer or clothes';
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: public_table; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.public_table (
+);
+
+
+ALTER TABLE public.public_table OWNER TO postgres;
 
 --
 -- Name: address_id_seq; Type: SEQUENCE; Schema: webshop; Owner: postgres
@@ -86,10 +114,6 @@ CREATE SEQUENCE webshop.articles_id_seq
 
 ALTER TABLE webshop.articles_id_seq OWNER TO postgres;
 
-SET default_tablespace = '';
-
-SET default_with_oids = false;
-
 --
 -- Name: colors; Type: TABLE; Schema: webshop; Owner: postgres
 --
@@ -102,6 +126,13 @@ CREATE TABLE webshop.colors (
 
 
 ALTER TABLE webshop.colors OWNER TO postgres;
+
+--
+-- Name: TABLE colors; Type: COMMENT; Schema: webshop; Owner: postgres
+--
+
+COMMENT ON TABLE webshop.colors IS 'Colors with name and rgb value';
+
 
 --
 -- Name: colors_id_seq; Type: SEQUENCE; Schema: webshop; Owner: postgres
@@ -218,6 +249,13 @@ CREATE TABLE webshop.sizes (
 ALTER TABLE webshop.sizes OWNER TO postgres;
 
 --
+-- Name: TABLE sizes; Type: COMMENT; Schema: webshop; Owner: postgres
+--
+
+COMMENT ON TABLE webshop.sizes IS 'Colors with name and rgb value';
+
+
+--
 -- Name: sizes_id_seq; Type: SEQUENCE; Schema: webshop; Owner: postgres
 --
 
@@ -266,6 +304,14 @@ ALTER TABLE ONLY webshop.colors ALTER COLUMN id SET DEFAULT nextval('webshop.col
 --
 
 ALTER TABLE ONLY webshop.sizes ALTER COLUMN id SET DEFAULT nextval('webshop.sizes_id_seq'::regclass);
+
+
+--
+-- Data for Name: public_table; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.public_table  FROM stdin;
+\.
 
 
 --

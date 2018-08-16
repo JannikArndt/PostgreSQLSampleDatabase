@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+DATABASENAME=${1:-'mywebshop'}
+
+echo "Running schemaspy for database $DATABASENAME"
+
 RED='\033[0;31m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
@@ -26,7 +30,7 @@ function runSchemaSpy {
         -dp postgresql.jar \
         -gv /usr/local/ \
         -renderer :cairo \
-        -db example \
+        -db $DATABASENAME \
         -host localhost:5432 \
         -u postgres \
         -s webshop \

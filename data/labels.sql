@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 10.4
--- Dumped by pg_dump version 10.4
+-- Dumped from database version 10.5
+-- Dumped by pg_dump version 10.5
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -32,6 +32,13 @@ CREATE TABLE webshop.labels (
 
 
 ALTER TABLE webshop.labels OWNER TO postgres;
+
+--
+-- Name: TABLE labels; Type: COMMENT; Schema: webshop; Owner: postgres
+--
+
+COMMENT ON TABLE webshop.labels IS 'Brands / labels';
+
 
 --
 -- Name: labels_id_seq; Type: SEQUENCE; Schema: webshop; Owner: postgres

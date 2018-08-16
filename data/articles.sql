@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 10.4
--- Dumped by pg_dump version 10.4
+-- Dumped from database version 10.5
+-- Dumped by pg_dump version 10.5
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -28,7 +28,7 @@ CREATE TABLE webshop.articles (
     productid integer,
     ean text,
     colorid integer,
-    sizeid integer,
+    size integer,
     description text,
     originalprice money,
     reducedprice money,
@@ -41,6 +41,13 @@ CREATE TABLE webshop.articles (
 
 
 ALTER TABLE webshop.articles OWNER TO postgres;
+
+--
+-- Name: TABLE articles; Type: COMMENT; Schema: webshop; Owner: postgres
+--
+
+COMMENT ON TABLE webshop.articles IS 'Instance of a product with a size, color and price';
+
 
 --
 -- Name: articles_id_seq; Type: SEQUENCE; Schema: webshop; Owner: postgres
@@ -75,7 +82,7 @@ ALTER TABLE ONLY webshop.articles ALTER COLUMN id SET DEFAULT nextval('webshop.a
 -- Data for Name: articles; Type: TABLE DATA; Schema: webshop; Owner: postgres
 --
 
-COPY webshop.articles (id, productid, ean, colorid, sizeid, description, originalprice, reducedprice, taxrate, discountinpercent, currentlyactive, created, updated) FROM stdin;
+COPY webshop.articles (id, productid, ean, colorid, size, description, originalprice, reducedprice, taxrate, discountinpercent, currentlyactive, created, updated) FROM stdin;
 793	50	3373437	68	11	The stylish Costume Aminis just what you need right now!	$147.00	$119.07	19.0	19	t	2018-08-02 11:56:54.199683+02	\N
 794	50	56636496	68	12	The stylish Costume Aminis just what you need right now!	$147.00	$119.07	19.0	19	t	2018-08-02 11:56:54.199683+02	\N
 795	50	55032789	68	13	The stylish Costume Aminis just what you need right now!	$147.00	$119.07	19.0	19	t	2018-08-02 11:56:54.199683+02	\N
@@ -17830,14 +17837,6 @@ ALTER TABLE ONLY webshop.articles
 
 ALTER TABLE ONLY webshop.articles
     ADD CONSTRAINT articles_colorid_fkey FOREIGN KEY (colorid) REFERENCES webshop.colors(id);
-
-
---
--- Name: articles fk_articles_to_size; Type: FK CONSTRAINT; Schema: webshop; Owner: postgres
---
-
-ALTER TABLE ONLY webshop.articles
-    ADD CONSTRAINT fk_articles_to_size FOREIGN KEY (sizeid) REFERENCES webshop.sizes(id);
 
 
 --
