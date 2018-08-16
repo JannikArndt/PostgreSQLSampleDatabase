@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>example Database</title>
+  <title>mywebshop Database</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.5 -->
@@ -45,7 +45,7 @@
     <nav class="navbar navbar-static-top">
       <div class="container">
         <div class="navbar-header">
-          <a href="index.html" class="navbar-brand"><b>example</b> Database</a>
+          <a href="index.html" class="navbar-brand"><b>mywebshop</b> Database</a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
             <i class="fa fa-bars"></i>
           </button>
@@ -101,31 +101,9 @@
 				</thead>
 				<tbody>
 				<tr>
-				 <td>order</td>
+				 <td>articles</td>
 				 <td>Table</td>
-				 <td>ordertimestamp</td>
-				 <td>timestamptz</td>
-				 <td>35</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>now()</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>products</td>
-				 <td>Table</td>
-				 <td>updated</td>
-				 <td>timestamptz</td>
-				 <td>35</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>customer</td>
-				 <td>Table</td>
-				 <td>lastname</td>
+				 <td>description</td>
 				 <td>text</td>
 				 <td>2147483647</td>
 				 <td title='nullable'>√</td>
@@ -134,31 +112,75 @@
 				 <td></td>
 				</tr>
 				<tr>
-				 <td>stock</td>
+				 <td>customer</td>
+				 <td>Table</td>
+				 <td>gender</td>
+				 <td>gender</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>labels</td>
+				 <td>Table</td>
+				 <td>slugname</td>
+				 <td>text</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>colors</td>
 				 <td>Table</td>
 				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
 				 <td>serial</td>
 				 <td>10</td>
 				 <td title=''></td>
 				 <td title='Automatically updated by the database'>√</td>
-				 <td>nextval(&#39;webshop.stock_id_seq&#39;::regclass)</td>
+				 <td>nextval(&#39;webshop.colors_id_seq&#39;::regclass)</td>
 				 <td></td>
 				</tr>
 				<tr>
-				 <td>order</td>
+				 <td>customer</td>
 				 <td>Table</td>
-				 <td>created</td>
-				 <td>timestamptz</td>
-				 <td>35</td>
+				 <td>dateofbirth</td>
+				 <td>date</td>
+				 <td>13</td>
 				 <td title='nullable'>√</td>
 				 <td title=''></td>
-				 <td>now()</td>
+				 <td>null</td>
 				 <td></td>
 				</tr>
 				<tr>
-				 <td>colors</td>
+				 <td>order_positions</td>
 				 <td>Table</td>
-				 <td>name</td>
+				 <td>amount</td>
+				 <td>int2</td>
+				 <td>5</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>products</td>
+				 <td>Table</td>
+				 <td>currentlyactive</td>
+				 <td>bool</td>
+				 <td>1</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>sizes</td>
+				 <td>Table</td>
+				 <td>size</td>
 				 <td>text</td>
 				 <td>2147483647</td>
 				 <td title='nullable'>√</td>
@@ -178,28 +200,6 @@
 				 <td></td>
 				</tr>
 				<tr>
-				 <td>stock</td>
-				 <td>Table</td>
-				 <td>count</td>
-				 <td>int4</td>
-				 <td>10</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>articles</td>
-				 <td>Table</td>
-				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
-				 <td>serial</td>
-				 <td>10</td>
-				 <td title=''></td>
-				 <td title='Automatically updated by the database'>√</td>
-				 <td>nextval(&#39;webshop.articles_id_seq&#39;::regclass)</td>
-				 <td></td>
-				</tr>
-				<tr>
 				 <td>products</td>
 				 <td>Table</td>
 				 <td>created</td>
@@ -211,9 +211,9 @@
 				 <td></td>
 				</tr>
 				<tr>
-				 <td>articles</td>
+				 <td>products</td>
 				 <td>Table</td>
-				 <td>ean</td>
+				 <td>name</td>
 				 <td>text</td>
 				 <td>2147483647</td>
 				 <td title='nullable'>√</td>
@@ -222,11 +222,77 @@
 				 <td></td>
 				</tr>
 				<tr>
+				 <td>order</td>
+				 <td>Table</td>
+				 <td>shippingcost</td>
+				 <td>money</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>order_positions</td>
+				 <td>Table</td>
+				 <td>updated</td>
+				 <td>timestamptz</td>
+				 <td>35</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>stock</td>
+				 <td>Table</td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>articleid</td>
+				 <td>int4</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>sizes</td>
+				 <td>Table</td>
+				 <td>gender</td>
+				 <td>gender</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>order</td>
+				 <td>Table</td>
+				 <td>ordertimestamp</td>
+				 <td>timestamptz</td>
+				 <td>35</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>now()</td>
+				 <td></td>
+				</tr>
+				<tr>
 				 <td>stock</td>
 				 <td>Table</td>
 				 <td>updated</td>
 				 <td>timestamptz</td>
 				 <td>35</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>order</td>
+				 <td>Table</td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>customerid</td>
+				 <td>int4</td>
+				 <td>10</td>
 				 <td title='nullable'>√</td>
 				 <td title=''></td>
 				 <td>null</td>
@@ -246,30 +312,8 @@
 				<tr>
 				 <td>articles</td>
 				 <td>Table</td>
-				 <td>taxrate</td>
-				 <td>numeric</td>
-				 <td>131089</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>articles</td>
-				 <td>Table</td>
-				 <td>updated</td>
-				 <td>timestamptz</td>
-				 <td>35</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>address</td>
-				 <td>Table</td>
-				 <td>address2</td>
-				 <td>text</td>
+				 <td>originalprice</td>
+				 <td>money</td>
 				 <td>2147483647</td>
 				 <td title='nullable'>√</td>
 				 <td title=''></td>
@@ -288,262 +332,9 @@
 				 <td></td>
 				</tr>
 				<tr>
-				 <td>address</td>
+				 <td>products</td>
 				 <td>Table</td>
-				 <td>firstname</td>
-				 <td>text</td>
-				 <td>2147483647</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>order_positions</td>
-				 <td>Table</td>
-				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>articleid</td>
-				 <td>int4</td>
-				 <td>10</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>address</td>
-				 <td>Table</td>
-				 <td>city</td>
-				 <td>text</td>
-				 <td>2147483647</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>articles</td>
-				 <td>Table</td>
-				 <td>description</td>
-				 <td>text</td>
-				 <td>2147483647</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>order</td>
-				 <td>Table</td>
-				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
-				 <td>serial</td>
-				 <td>10</td>
-				 <td title=''></td>
-				 <td title='Automatically updated by the database'>√</td>
-				 <td>nextval(&#39;webshop.order_id_seq&#39;::regclass)</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>sizes</td>
-				 <td>Table</td>
-				 <td>category</td>
-				 <td>category</td>
-				 <td>2147483647</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>order</td>
-				 <td>Table</td>
-				 <td>total</td>
-				 <td>money</td>
-				 <td>2147483647</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>sizes</td>
-				 <td>Table</td>
-				 <td>size_eu</td>
-				 <td>int4range</td>
-				 <td>2147483647</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>labels</td>
-				 <td>Table</td>
-				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
-				 <td>serial</td>
-				 <td>10</td>
-				 <td title=''></td>
-				 <td title='Automatically updated by the database'>√</td>
-				 <td>nextval(&#39;webshop.labels_id_seq&#39;::regclass)</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>sizes</td>
-				 <td>Table</td>
-				 <td>size</td>
-				 <td>text</td>
-				 <td>2147483647</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>address</td>
-				 <td>Table</td>
-				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
-				 <td>serial</td>
-				 <td>10</td>
-				 <td title=''></td>
-				 <td title='Automatically updated by the database'>√</td>
-				 <td>nextval(&#39;webshop.address_id_seq&#39;::regclass)</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>customer</td>
-				 <td>Table</td>
-				 <td>firstname</td>
-				 <td>text</td>
-				 <td>2147483647</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>sizes</td>
-				 <td>Table</td>
-				 <td>size_us</td>
-				 <td>int4range</td>
-				 <td>2147483647</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>sizes</td>
-				 <td>Table</td>
-				 <td>gender</td>
-				 <td>gender</td>
-				 <td>2147483647</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>colors</td>
-				 <td>Table</td>
-				 <td>rgb</td>
-				 <td>text</td>
-				 <td>2147483647</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>order_positions</td>
-				 <td>Table</td>
-				 <td>updated</td>
-				 <td>timestamptz</td>
-				 <td>35</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>address</td>
-				 <td>Table</td>
-				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>customerid</td>
-				 <td>int4</td>
-				 <td>10</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>order</td>
-				 <td>Table</td>
-				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>customerid</td>
-				 <td>int4</td>
-				 <td>10</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>order_positions</td>
-				 <td>Table</td>
-				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
-				 <td>serial</td>
-				 <td>10</td>
-				 <td title=''></td>
-				 <td title='Automatically updated by the database'>√</td>
-				 <td>nextval(&#39;webshop.order_positions_id_seq&#39;::regclass)</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>sizes</td>
-				 <td>Table</td>
-				 <td>size_uk</td>
-				 <td>int4range</td>
-				 <td>2147483647</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>sizes</td>
-				 <td>Table</td>
-				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
-				 <td>serial</td>
-				 <td>10</td>
-				 <td title=''></td>
-				 <td title='Automatically updated by the database'>√</td>
-				 <td>nextval(&#39;webshop.sizes_id_seq&#39;::regclass)</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>order_positions</td>
-				 <td>Table</td>
-				 <td>amount</td>
-				 <td>int2</td>
-				 <td>5</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>customer</td>
-				 <td>Table</td>
-				 <td>created</td>
-				 <td>timestamptz</td>
-				 <td>35</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>now()</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>articles</td>
-				 <td>Table</td>
-				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>sizeid</td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>labelid</td>
 				 <td>int4</td>
 				 <td>10</td>
 				 <td title='nullable'>√</td>
@@ -565,17 +356,6 @@
 				<tr>
 				 <td>articles</td>
 				 <td>Table</td>
-				 <td>discountinpercent</td>
-				 <td>int4</td>
-				 <td>10</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>articles</td>
-				 <td>Table</td>
 				 <td>created</td>
 				 <td>timestamptz</td>
 				 <td>35</td>
@@ -585,11 +365,44 @@
 				 <td></td>
 				</tr>
 				<tr>
+				 <td>address</td>
+				 <td>Table</td>
+				 <td>firstname</td>
+				 <td>text</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>sizes</td>
+				 <td>Table</td>
+				 <td>size_uk</td>
+				 <td>int4range</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>order</td>
+				 <td>Table</td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>shippingaddressid</td>
+				 <td>int4</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
 				 <td>order_positions</td>
 				 <td>Table</td>
-				 <td>price</td>
-				 <td>money</td>
-				 <td>2147483647</td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>articleid</td>
+				 <td>int4</td>
+				 <td>10</td>
 				 <td title='nullable'>√</td>
 				 <td title=''></td>
 				 <td>null</td>
@@ -598,9 +411,20 @@
 				<tr>
 				 <td>customer</td>
 				 <td>Table</td>
-				 <td>dateofbirth</td>
-				 <td>date</td>
-				 <td>13</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>serial</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>nextval(&#39;webshop.customer_id_seq1&#39;::regclass)</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>sizes</td>
+				 <td>Table</td>
+				 <td>category</td>
+				 <td>category</td>
+				 <td>2147483647</td>
 				 <td title='nullable'>√</td>
 				 <td title=''></td>
 				 <td>null</td>
@@ -608,6 +432,28 @@
 				</tr>
 				<tr>
 				 <td>address</td>
+				 <td>Table</td>
+				 <td>zip</td>
+				 <td>text</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>articles</td>
+				 <td>Table</td>
+				 <td>ean</td>
+				 <td>text</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>articles</td>
 				 <td>Table</td>
 				 <td>updated</td>
 				 <td>timestamptz</td>
@@ -618,42 +464,31 @@
 				 <td></td>
 				</tr>
 				<tr>
-				 <td>products</td>
+				 <td>articles</td>
 				 <td>Table</td>
-				 <td>category</td>
-				 <td>category</td>
-				 <td>2147483647</td>
+				 <td>productid</td>
+				 <td>int4</td>
+				 <td>10</td>
 				 <td title='nullable'>√</td>
 				 <td title=''></td>
 				 <td>null</td>
 				 <td></td>
 				</tr>
 				<tr>
-				 <td>order</td>
+				 <td>customer</td>
 				 <td>Table</td>
-				 <td>shippingcost</td>
-				 <td>money</td>
-				 <td>2147483647</td>
+				 <td>created</td>
+				 <td>timestamptz</td>
+				 <td>35</td>
 				 <td title='nullable'>√</td>
 				 <td title=''></td>
-				 <td>null</td>
+				 <td>now()</td>
 				 <td></td>
 				</tr>
 				<tr>
-				 <td>labels</td>
+				 <td>articles</td>
 				 <td>Table</td>
-				 <td>icon</td>
-				 <td>bytea</td>
-				 <td>2147483647</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>products</td>
-				 <td>Table</td>
-				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>labelid</td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>colorid</td>
 				 <td>int4</td>
 				 <td>10</td>
 				 <td title='nullable'>√</td>
@@ -673,121 +508,11 @@
 				 <td></td>
 				</tr>
 				<tr>
-				 <td>products</td>
+				 <td>customer</td>
 				 <td>Table</td>
-				 <td>currentlyactive</td>
-				 <td>bool</td>
-				 <td>1</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>articles</td>
-				 <td>Table</td>
-				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>colorid</td>
-				 <td>int4</td>
-				 <td>10</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>articles</td>
-				 <td>Table</td>
-				 <td>originalprice</td>
-				 <td>money</td>
-				 <td>2147483647</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>colors</td>
-				 <td>Table</td>
-				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
-				 <td>serial</td>
-				 <td>10</td>
-				 <td title=''></td>
-				 <td title='Automatically updated by the database'>√</td>
-				 <td>nextval(&#39;webshop.colors_id_seq&#39;::regclass)</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>address</td>
-				 <td>Table</td>
-				 <td>created</td>
+				 <td>updated</td>
 				 <td>timestamptz</td>
 				 <td>35</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>now()</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>order</td>
-				 <td>Table</td>
-				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>shippingaddressid</td>
-				 <td>int4</td>
-				 <td>10</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>articles</td>
-				 <td>Table</td>
-				 <td>productid</td>
-				 <td>int4</td>
-				 <td>10</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>products</td>
-				 <td>Table</td>
-				 <td>gender</td>
-				 <td>gender</td>
-				 <td>2147483647</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>address</td>
-				 <td>Table</td>
-				 <td>address1</td>
-				 <td>text</td>
-				 <td>2147483647</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>order_positions</td>
-				 <td>Table</td>
-				 <td>created</td>
-				 <td>timestamptz</td>
-				 <td>35</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>now()</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>labels</td>
-				 <td>Table</td>
-				 <td>slugname</td>
-				 <td>text</td>
-				 <td>2147483647</td>
 				 <td title='nullable'>√</td>
 				 <td title=''></td>
 				 <td>null</td>
@@ -795,6 +520,39 @@
 				</tr>
 				<tr>
 				 <td>customer</td>
+				 <td>Table</td>
+				 <td>firstname</td>
+				 <td>text</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>sizes</td>
+				 <td>Table</td>
+				 <td>size_eu</td>
+				 <td>int4range</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>products</td>
+				 <td>Table</td>
+				 <td>category</td>
+				 <td>category</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>products</td>
 				 <td>Table</td>
 				 <td>gender</td>
 				 <td>gender</td>
@@ -816,55 +574,44 @@
 				 <td></td>
 				</tr>
 				<tr>
-				 <td>order</td>
+				 <td>stock</td>
 				 <td>Table</td>
-				 <td>updated</td>
-				 <td>timestamptz</td>
-				 <td>35</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>customer</td>
-				 <td>Table</td>
-				 <td>updated</td>
-				 <td>timestamptz</td>
-				 <td>35</td>
-				 <td title='nullable'>√</td>
-				 <td title=''></td>
-				 <td>null</td>
-				 <td></td>
-				</tr>
-				<tr>
-				 <td>customer</td>
-				 <td>Table</td>
-				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
-				 <td>serial</td>
+				 <td>count</td>
+				 <td>int4</td>
 				 <td>10</td>
+				 <td title='nullable'>√</td>
 				 <td title=''></td>
-				 <td title='Automatically updated by the database'>√</td>
-				 <td>nextval(&#39;webshop.customer_id_seq1&#39;::regclass)</td>
+				 <td>null</td>
 				 <td></td>
 				</tr>
 				<tr>
-				 <td>products</td>
+				 <td>colors</td>
 				 <td>Table</td>
-				 <td>name</td>
+				 <td>rgb</td>
 				 <td>text</td>
 				 <td>2147483647</td>
 				 <td title='nullable'>√</td>
 				 <td title=''></td>
 				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>order_positions</td>
+				 <td>Table</td>
+				 <td>created</td>
+				 <td>timestamptz</td>
+				 <td>35</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>now()</td>
 				 <td></td>
 				</tr>
 				<tr>
 				 <td>address</td>
 				 <td>Table</td>
-				 <td>zip</td>
-				 <td>text</td>
-				 <td>2147483647</td>
+				 <td>updated</td>
+				 <td>timestamptz</td>
+				 <td>35</td>
 				 <td title='nullable'>√</td>
 				 <td title=''></td>
 				 <td>null</td>
@@ -882,9 +629,20 @@
 				 <td></td>
 				</tr>
 				<tr>
-				 <td>labels</td>
+				 <td>order</td>
 				 <td>Table</td>
-				 <td>name</td>
+				 <td>updated</td>
+				 <td>timestamptz</td>
+				 <td>35</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>address</td>
+				 <td>Table</td>
+				 <td>address2</td>
 				 <td>text</td>
 				 <td>2147483647</td>
 				 <td title='nullable'>√</td>
@@ -893,11 +651,77 @@
 				 <td></td>
 				</tr>
 				<tr>
-				 <td>stock</td>
+				 <td>labels</td>
 				 <td>Table</td>
-				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>articleid</td>
-				 <td>int4</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>serial</td>
 				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>nextval(&#39;webshop.labels_id_seq&#39;::regclass)</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>address</td>
+				 <td>Table</td>
+				 <td>address1</td>
+				 <td>text</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>address</td>
+				 <td>Table</td>
+				 <td>created</td>
+				 <td>timestamptz</td>
+				 <td>35</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>now()</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>labels</td>
+				 <td>Table</td>
+				 <td>icon</td>
+				 <td>bytea</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>articles</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>serial</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>nextval(&#39;webshop.articles_id_seq&#39;::regclass)</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>address</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>serial</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>nextval(&#39;webshop.address_id_seq&#39;::regclass)</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>address</td>
+				 <td>Table</td>
+				 <td>city</td>
+				 <td>text</td>
+				 <td>2147483647</td>
 				 <td title='nullable'>√</td>
 				 <td title=''></td>
 				 <td>null</td>
@@ -912,6 +736,182 @@
 				 <td title='nullable'>√</td>
 				 <td title=''></td>
 				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>customer</td>
+				 <td>Table</td>
+				 <td>lastname</td>
+				 <td>text</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>address</td>
+				 <td>Table</td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>customerid</td>
+				 <td>int4</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>order_positions</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>serial</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>nextval(&#39;webshop.order_positions_id_seq&#39;::regclass)</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>order</td>
+				 <td>Table</td>
+				 <td>total</td>
+				 <td>money</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>order</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>serial</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>nextval(&#39;webshop.order_id_seq&#39;::regclass)</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>colors</td>
+				 <td>Table</td>
+				 <td>name</td>
+				 <td>text</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>articles</td>
+				 <td>Table</td>
+				 <td>discountinpercent</td>
+				 <td>int4</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>sizes</td>
+				 <td>Table</td>
+				 <td>size_us</td>
+				 <td>int4range</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>articles</td>
+				 <td>Table</td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>sizeid</td>
+				 <td>int4</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>order_positions</td>
+				 <td>Table</td>
+				 <td>price</td>
+				 <td>money</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>stock</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>serial</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>nextval(&#39;webshop.stock_id_seq&#39;::regclass)</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>labels</td>
+				 <td>Table</td>
+				 <td>name</td>
+				 <td>text</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>products</td>
+				 <td>Table</td>
+				 <td>updated</td>
+				 <td>timestamptz</td>
+				 <td>35</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>order</td>
+				 <td>Table</td>
+				 <td>created</td>
+				 <td>timestamptz</td>
+				 <td>35</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>now()</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>articles</td>
+				 <td>Table</td>
+				 <td>taxrate</td>
+				 <td>numeric</td>
+				 <td>131089</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>sizes</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>serial</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>nextval(&#39;webshop.sizes_id_seq&#39;::regclass)</td>
 				 <td></td>
 				</tr>
 								</tbody>
