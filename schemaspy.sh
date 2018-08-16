@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 DATABASENAME=${1:-'mywebshop'}
+SCHEMASPY_VERSION='schemaspy-6.0.0.jar'
 
 echo "Running schemaspy for database $DATABASENAME"
 
@@ -16,21 +17,21 @@ function checkForPostgresDriver {
 }
 
 function checkForSchemaSpy {
-    if [ ! -f ./schemaspy-6.0.0-rc2.jar ]; then
-        echo "${BLUE}Missing schemaspy.jar, downloading…${NC}\n"
-        curl -L -o schemaspy-6.0.0-rc2.jar https://github.com/schemaspy/schemaspy/releases/download/v6.0.0-rc2/schemaspy-6.0.0-rc2.jar
+    if [ ! -f ./${SCHEMASPY_VERSION} ]; then
+        echo "${BLUE}Missing ${SCHEMASPY_VERSION}, downloading…${NC}\n"
+        curl -L -o ${SCHEMASPY_VERSION} https://github.com/schemaspy/schemaspy/releases/download/v6.0.0/${SCHEMASPY_VERSION}
     fi
 }
 
 function runSchemaSpy {
     LC_CTYPE="en_US.UTF-8"
 
-    java -jar schemaspy-6.0.0-rc2.jar \
+    java -jar ${SCHEMASPY_VERSION} \
         -t pgsql \
         -dp postgresql.jar \
         -gv /usr/local/ \
         -renderer :cairo \
-        -db $DATABASENAME \
+        -db ${DATABASENAME} \
         -host localhost:5432 \
         -u postgres \
         -s webshop \
